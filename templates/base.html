@@ -1,0 +1,115 @@
+<html><head><title>DICE ROLL GAME</title>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+body{
+
+background-image: url({{ url_for('static', filename='css/background-dice-gambling-green-vector-15356993.jpg') }})
+
+
+}
+h3
+{
+font-size:40px;
+}
+#textboxid
+{
+    height:50px;
+    width:500px;
+    font-size:14pt;
+}
+div {
+background-color:white;
+  width: 500px;
+  height:5px
+  border: 5px solid green;
+font-size:20pt;
+#searchBox {
+  color: white;
+ 
+  margin-center: 5px;
+  padding: 5px;
+}
+
+#searchBox input {
+  font-size: 25%;
+  width: 50px;
+}
+  
+}
+</style>
+</head>
+<body style="background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;">
+
+<h1 style="color:white;text-align:center;font-size:46px;">DICE ROLL GAME</h1><center>
+
+<form action="{{ url_for('game')}}" method="post","get">
+<center><h4 style="color:white;">SELECT THE NUMBER AND TAP ROLL</h4></center>
+<select type="text" name="nm" required="required" id="searchBox" style="font-size:35px;color:black;width:150px;">
+ <h5> <option value=1>1</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+  <option value=4>4</option>
+   <option value=5>5</option>
+  <option value=6>6</option>
+  <h5></h3></B>
+</select><br><br>
+
+{% if a==1 %}
+         <img src="{{url_for('static', filename='css/dice1.png')}}" align="middle" />
+      {% elif a==2 %}
+         <img src="{{url_for('static', filename='css/dice2.png')}}" align="middle" />
+      {% elif a==3 %}
+         <img src="{{url_for('static', filename='css/dice3.png')}}" align="middle" />
+      {% elif a==4 %}
+         <img src="{{url_for('static', filename='css/dice4.png')}}" align="middle" />
+      {% elif a==5 %}
+         <img src="{{url_for('static', filename='css/dice5.png')}}" align="middle" />
+      {% elif a==6 %}
+         <img src="{{url_for('static', filename='css/dice6.png')}}" align="middle" />
+      
+      {% endif %} 
+      <br><br><br>
+<button class="button button1">Roll!!!</button>
+{% if a==d %}
+        <div> <h2 style ="color:green;font-family:verdana;">Hurry !! You got Correct</h2></div>  
+{% else %}
+<div> <h2 style ="color:red;font-family:verdana;">Oops! Please try again</h2></div>  
+{% endif %} 
+
+
+
+<BR><BR>
+<h1>{{result}}</h1>
+</form>
+
+
+</center>
+</body>
+</html>
+
+
